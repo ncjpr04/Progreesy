@@ -1,0 +1,83 @@
+{
+  "name": "life-timeline-widget",
+  "version": "0.1.0",
+  "description": "A desktop widget that visualizes your life timeline with todos and alarms",
+  "main": "main/index.js",
+  "scripts": {
+    "dev": "npm run build:electron && concurrently \"npm run dev:electron\" \"npm run dev:next\"",
+    "dev:electron": "electron .",
+    "dev:next": "next dev",
+    "build": "next build && npm run build:electron",
+    "build:electron": "tsc -p electron-tsconfig.json",
+    "start": "next start",
+    "lint": "next lint",
+    "dist": "npm run build && electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "nextjs",
+    "timeline",
+    "widget",
+    "todos",
+    "alarms"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-toast": "^1.1.5",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
+    "electron-is-dev": "^2.0.0",
+    "electron-next": "^3.1.5",
+    "lucide-react": "^0.323.0",
+    "next": "14.1.0",
+    "next-themes": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.52",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "concurrently": "^8.2.2",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "build": {
+    "appId": "com.example.life-timeline-widget",
+    "productName": "Life Timeline Widget",
+    "files": [
+      "main",
+      ".next/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+} 
